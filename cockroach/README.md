@@ -19,14 +19,16 @@ key-based SSH access to the machine.
 Step #2
 
 The next step in the process is to zip your folder with your new sshkey file included,
-and then move that over to the target's home directory of a user with sudo permissions.
-This can be done with a few different methods, which is your discretion. I used
-scp <file> <hostname>@<ip>:<homedirectory>
+and then move that over to the target's home directory of a user with sudo permissions. The
+zip command is 'zip -r <new zipped file> <directory>'. Moving the zipped file over
+can be done with a few different methods, which is your discretion. I used scp <file> 
+<hostname>@<ip>:<homedirectory>
 
 Step #3
 
 Go onto the target host and unzip the folder, and move all of its contents (the 3
 main files: cockroach.sh, sshkey, and sshd_config) into the user's home directory.
+This can be done by going into the extracted folder and doing 'mv * ..'
 This is crucial as some of the paths in the script only work if it is ran from
 their home directory. 
 
