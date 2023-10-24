@@ -20,9 +20,9 @@ Step #2
 
 The next step in the process is to zip your folder with your new sshkey file included,
 and then move that over to the target's home directory of a user with sudo permissions. The
-zip command is 'zip -r <new zipped file> <directory>'. Moving the zipped file over
-can be done with a few different methods, which is your discretion. I used scp <file> 
-<hostname>@<ip>:<homedirectory>
+zip command is 'zip -r new_zipped_file directory'. Moving the zipped file over
+can be done with a few different methods, which is your discretion. I used scp file
+hostname@ip:homedirectory
 
 Step #3
 
