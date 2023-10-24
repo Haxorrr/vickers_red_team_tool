@@ -33,5 +33,10 @@ their home directory.
 Step #4
 
 Run the program with 'sudo bash cockroach.sh'
+When the program is running, you will be prompted twice, once for setting the password
+on your newly created account and then a second time for cronjobs. I personally plan
+to implement cronjobs to stop the services running on the box, and may do some other
+cool things too like wipe iptables rules every now and then.
+
 Bada-bing bada-boom, you should now be able to SSH into the root and the specific
 user's accounts, and you also have the option to SSH into the newly created account.
